@@ -1,0 +1,5 @@
+Credentials cache: API:92CCFC13-1557-44D8-876C-1C1AD81ACD49
+        Principal: pmeredyt@MSK.21-SCHOOL.RU
+
+  Issued                Expires               Principal
+Aug  4 12:16:58 2021  Aug  4 22:16:55 2021  krbtgt/MSK.21-SCHOOL.RU@MSK.21-SCHOOL.RU
