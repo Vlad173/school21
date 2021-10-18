@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test06.c                                           :+:      :+:    :+:   */
+/*   atoi.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeredyt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 13:39:59 by pmeredyt          #+#    #+#             */
-/*   Updated: 2021/08/18 22:42:03 by pmeredyt         ###   ########.fr       */
+/*   Created: 2021/08/09 13:18:20 by pmeredyt          #+#    #+#             */
+/*   Updated: 2021/10/19 01:24:58 by vladislov        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 
-void ft_sort_tabing_tab(char **tab);
-
-int main()
+int	ft_atoi(const char *str)
 {
-	char *arr[12] = {"b", "a", "A", "B", "aA", "aaa", "", "vlad", "", "fedya", "danila", 0};
-	ft_sort_tabing_tab(arr);
+	int	i;
+	int	sign;
+	int	result;
 
-	for (int i = 0; arr[i] != 0; ++i)
-		printf("%s\n", arr[i]);
-	
-	return (0);
+	i = 0;
+	sign = 1;
+	result = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		++i;
+	if (str[i] == '+' || str[i] == '-')
+		if (str[i++] == '-')
+			sign *= -1;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + str[i] - '0';
+		++i;
+	}
+	return (result * sign);
 }

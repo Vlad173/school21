@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test06.c                                           :+:      :+:    :+:   */
+/*   strdup.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeredyt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 13:39:59 by pmeredyt          #+#    #+#             */
-/*   Updated: 2021/08/18 22:42:53 by pmeredyt         ###   ########.fr       */
+/*   Created: 2021/08/12 10:05:26 by pmeredyt          #+#    #+#             */
+/*   Updated: 2021/10/13 01:21:17 by vladislov        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 
-void ft_advanced_sort_string_tab(char **tab, int(*cmp)(char *, char *));
+#include <stdlib.h>
 
-int	ft_tabcmp(char *s1, char *s2)
+unsigned int	ft_strlen(const char *str);
+
+char	*ft_strdup(const char *src)
 {
-	int	i;
+	unsigned int	length;
+	unsigned int	i;
+	char			*str;
 
+	length = ft_strlen(src);
+	str = (char *)malloc(sizeof(char) * (length + 1));
+	if (str == NULL)
+		return (NULL);
 	i = 0;
-	while (s1[i] == s2[i])
+	while (i < length)
 	{
-		if (!s1[i] && !s2[i])
-			break ;
+		str[i] = src[i];
 		++i;
 	}
-	return (s1[i] - s2[i]);
-}
-
-int main()
-{
-	char *arr[5] = {"vlad", "fedya", "", "danila", 0};
-	ft_advanced_sort_string_tab(arr, ft_tabcmp);
-
-	for (int i = 0; arr[i] != 0; ++i)
-		printf("%s\n", arr[i]);
-	
-	return (0);
+	str[i] = 0;
+	return (str);
 }
