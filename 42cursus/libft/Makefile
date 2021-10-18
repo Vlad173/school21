@@ -44,7 +44,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/libft.h
 	$(CC) $(CFLAGS) -I include -c $< -o $@
 
 clean:
-	$(RM) $(OBJS) $(BOBJS)
+	$(RM) -r $(OBJ_DIR)
 
 fclean:	clean
 	$(RM) $(NAME)

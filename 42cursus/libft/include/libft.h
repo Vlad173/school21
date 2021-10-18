@@ -6,7 +6,7 @@
 /*   By: vladislove <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 02:54:36 by vladislov         #+#    #+#             */
-/*   Updated: 2021/10/18 23:50:28 by vladislov        ###   ########.fr       */
+/*   Updated: 2021/10/19 02:42:08 by vladislov        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}					t_list;
+}	t_list;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
