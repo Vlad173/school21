@@ -559,7 +559,13 @@ int check_strtrim()
 	if (strcmp(ft_strtrim("aaaaadxcxxxbdc", "abcd"), "xcxxx") != 0 && !(flag = 0))
 		printf("  Test 4 FAILED\n");
 	if (strcmp(ft_strtrim("", "ab"), "") != 0 && !(flag = 0))
-		printf("  Test 1 FAILED\n");
+		printf("  Test 5 FAILED\n");
+	if (strcmp(ft_strtrim("axxxxxa", "a"), "xxxxx") != 0 && !(flag = 0))
+		printf("  Test 6 FAILED\n");
+	if (strcmp(ft_strtrim("aaaaaax", "a"), "x") != 0 && !(flag = 0))
+		printf("  Test 7 FAILED\n");
+	if (strcmp(ft_strtrim("xaaaaaa", "a"), "x") != 0 && !(flag = 0))
+		printf("  Test 8 FAILED\n");
 
 	return flag;
 }
