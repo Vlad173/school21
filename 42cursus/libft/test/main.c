@@ -2,7 +2,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../include/libft.h"
+#include "../libft.h"
 
 #define MIN_INT -2147483648
 #define MAX_INT 2147483647 
@@ -321,6 +321,13 @@ int check_memcpy()
 		if (strncmp(b1, b2, 4) && !(flag = 0))
 			printf("  Test 4 FAILED\n");
 	}	
+
+	char * big = (char *) "123456789";
+	char * little = (char *) "9";
+	size_t max = 8;
+	char *s1 = strnstr(big, little, max);
+	char *s2 = ft_strnstr(big, little, max);
+	printf("_%s_ _%s_\n", s1, s2);
 	return flag;	
 }
 
@@ -479,30 +486,32 @@ int check_memcmp()
 {
 	int flag = 1;
 
-	if (ft_memcmp("123", "123", 3) != 0 && !(flag = 0))	
-		printf("  Test 1 FAILED\n");
-	if (ft_memcmp("123", "133", 3) >= 0 && !(flag = 0))	
-		printf("  Test 2 FAILED\n");
-	if (ft_memcmp("", "", 1) != 0 && !(flag = 0))	
-		printf("  Test 3 FAILED\n");
-	if (ft_memcmp("abczef", "abdef", 6) >= 0 && !(flag = 0))	
-		printf("  Test 4 FAILED\n");
-	if (ft_memcmp("123", "12456", 3) >= 0 && !(flag = 0))	
-		printf("  Test 5 FAILED\n");
-	if (ft_memcmp("12456", "123", 3) <= 0 && !(flag = 0))	
-		printf("  Test 6 FAILED\n");
-	if (ft_memcmp("1", "\0", 1) <= 0 && !(flag = 0))	
-		printf("  Test 7 FAILED\n");
-	if (ft_memcmp("b\0", "bgh", 1) != 0 && !(flag = 0))	
-		printf("  Test 8 FAILED\n");
-	if (ft_memcmp("qwerty", "qwerty", 1337) != 0 && !(flag = 0))	
-		printf("  Test 9 FAILED\n");
-	if (ft_memcmp("qwerty", "qwertz", 4) != 0 && !(flag = 0))	
-		printf("  Test 10 FAILED\n");
+//	if (ft_memcmp("123", "123", 3) != 0 && !(flag = 0))	
+//		printf("  Test 1 FAILED\n");
+//	if (ft_memcmp("123", "133", 3) >= 0 && !(flag = 0))	
+//		printf("  Test 2 FAILED\n");
+//	if (ft_memcmp("", "", 1) != 0 && !(flag = 0))	
+//		printf("  Test 3 FAILED\n");
+//	if (ft_memcmp("abczef", "abdef", 6) >= 0 && !(flag = 0))	
+//		printf("  Test 4 FAILED\n");
+//	if (ft_memcmp("123", "12456", 3) >= 0 && !(flag = 0))	
+//		printf("  Test 5 FAILED\n");
+//	if (ft_memcmp("12456", "123", 3) <= 0 && !(flag = 0))	
+//		printf("  Test 6 FAILED\n");
+//	if (ft_memcmp("1", "\0", 1) <= 0 && !(flag = 0))	
+//		printf("  Test 7 FAILED\n");
+//	if (ft_memcmp("b\0", "bgh", 1) != 0 && !(flag = 0))	
+//		printf("  Test 8 FAILED\n");
+//	if (ft_memcmp("qwerty", "qwerty", 1337) != 0 && !(flag = 0))	
+//		printf("  Test 9 FAILED\n");
+//	if (ft_memcmp("qwerty", "qwertz", 4) != 0 && !(flag = 0))	
+//		printf("  Test 10 FAILED\n");
 
-	int test1 = 1337, test2 = 1337;
-	if (ft_memcmp(&test1, &test2, sizeof(int)) != 0 && !(flag = 0))
-			printf(" Test 11 FAILED\n");
+	char s2[] = {0, 0, 127, 0};
+	char s3[] = {0, 0, 127, 0};
+	/* 5 */ printf("%d\n", ft_memcmp(s2, s3, 4));
+//	if (ft_memcmp(&test1, &test2, sizeof(int)) != 0 && !(flag = 0))
+//			printf(" Test 11 FAILED\n");
 	return flag;	
 }
 
@@ -510,20 +519,23 @@ int check_substr()
 {
 	int flag = 1;
 
-	if (strcmp(ft_substr("12345", 2, 1000), "345") != 0 && !(flag = 0))
-		printf("  Test 1 FAILED\n");
-	if (strcmp(ft_substr("12345", 2, 1), "3") != 0 && !(flag = 0))
-		printf("  Test 2 FAILED\n");
-	if (strcmp(ft_substr("12345", 2, 0), "") != 0 && !(flag = 0))
-		printf("  Test 3 FAILED\n");
-	if (ft_substr("12345", 32, 1) != 0 && !(flag = 0))
-		printf("  Test 4 FAILED\n");
-	if (strcmp(ft_substr("hello world!", 0, 12), "hello world!") != 0 && !(flag = 0))
-		printf("  Test 5 FAILED\n");
-	if (strcmp(ft_substr("hello world!", 7, 12), "orld!") != 0 && !(flag = 0))
-		printf("  Test 6 FAILED\n");
-	if (strcmp(ft_substr("hello world!", 7, 3), "orl") != 0 && !(flag = 0))
-		printf("  Test 7 FAILED\n");
+//	if (strcmp(ft_substr("12345", 2, 1000), "345") != 0 && !(flag = 0))
+//		printf("  Test 1 FAILED\n");
+//	if (strcmp(ft_substr("12345", 2, 1), "3") != 0 && !(flag = 0))
+//		printf("  Test 2 FAILED\n");
+//	if (strcmp(ft_substr("12345", 2, 0), "") != 0 && !(flag = 0))
+//		printf("  Test 3 FAILED\n");
+//	if (ft_substr("12345", 32, 1) != 0 && !(flag = 0))
+//		printf("  Test 4 FAILED\n");
+//	if (strcmp(ft_substr("hello world!", 0, 12), "hello world!") != 0 && !(flag = 0))
+//		printf("  Test 5 FAILED\n");
+//	if (strcmp(ft_substr("hello world!", 7, 12), "orld!") != 0 && !(flag = 0))
+//		printf("  Test 6 FAILED\n");
+//	if (strcmp(ft_substr("hello world!", 7, 3), "orl") != 0 && !(flag = 0))
+//		printf("  Test 7 FAILED\n");
+	printf("_%s-\n", ft_substr("tripouille", 100, 1));
+	///* 5 */ check(!strcmp(s, ""));
+	///* 6 */ mcheck(s, 1); free(s); showLeaks();
 	return flag;	
 }
 
@@ -716,80 +728,91 @@ int	check_memmove()
 int	check_strlcat()
 {
 	int flag = 1;
-	{
-		char a1[20] = "Hello_\0";
-		char a2[20] = "Hello_\0";
-		char b[10] = "World\0";
-		int d1, d2;
-		d1 = ft_strlcat(a1, b, 20);
-		d2 = strlcat(a2, b, 20);
-		//printf("ft = %d, std = %d, a1 = %s, a2 = %s\n", d1, d2, a1, a2);
-		if ((d1 != d2 || (ft_strncmp(a1, a2, ft_strlen(a1)))) && !(flag = 0))
-			printf("  Test 1 FAILED\n");
-	}
-	{
-		char a1[20] = "Hello_\0";
-		char a2[20] = "Hello_\0";
-		char b[10] = "World\0";
-		if ((ft_strlcat(a1, b, 10) != strlcat(a2, b, 10) || (ft_strncmp(a1, a2, ft_strlen(a1)))) && !(flag = 0))
-			printf("  Test 2 FAILED\n");
-	}
-	{
-		char a1[12] = "Hello_\0";
-		char a2[12] = "Hello_\0";
-		char b[40] = "WorldWorldWorldWorldWorldWorld\0";
-		if ((ft_strlcat(a1, b, 12) != strlcat(a2, b, 12) || (ft_strncmp(a1, a2, ft_strlen(a1)))) && !(flag = 0))
-			printf("  Test 3 FAILED\n");
-		//printf("ft = %s, std = %s\n", a1, a2);
-	}
-	{
-		char a1[12] = "\0";
-		char a2[12] = "\0";
-		char b[40] = "Hello_WorldWorldWorldWorldWorldWorld\0";
-		if ((ft_strlcat(a1, b, 12) != strlcat(a2, b, 12) || (ft_strncmp(a1, a2, ft_strlen(a1)))) && !(flag = 0))
-			printf("  Test 4 FAILED\n");
-		//printf("ft = %s, std = %s\n", a1, a2);
-	}
+	//{
+	//	char a1[20] = "Hello_\0";
+	//	char a2[20] = "Hello_\0";
+	//	char b[10] = "World\0";
+	//	int d1, d2;
+	//	d1 = ft_strlcat(a1, b, 20);
+	//	d2 = strlcat(a2, b, 20);
+	//	//printf("ft = %d, std = %d, a1 = %s, a2 = %s\n", d1, d2, a1, a2);
+	//	if ((d1 != d2 || (ft_strncmp(a1, a2, ft_strlen(a1)))) && !(flag = 0))
+	//		printf("  Test 1 FAILED\n");
+	//}
+	//{
+	//	char a1[20] = "Hello_\0";
+	//	char a2[20] = "Hello_\0";
+	//	char b[10] = "World\0";
+	//	if ((ft_strlcat(a1, b, 10) != strlcat(a2, b, 10) || (ft_strncmp(a1, a2, ft_strlen(a1)))) && !(flag = 0))
+	//		printf("  Test 2 FAILED\n");
+	//}
+	//{
+	//	char a1[12] = "Hello_\0";
+	//	char a2[12] = "Hello_\0";
+	//	char b[40] = "WorldWorldWorldWorldWorldWorld\0";
+	//	if ((ft_strlcat(a1, b, 12) != strlcat(a2, b, 12) || (ft_strncmp(a1, a2, ft_strlen(a1)))) && !(flag = 0))
+	//		printf("  Test 3 FAILED\n");
+	//	//printf("ft = %s, std = %s\n", a1, a2);
+	//}
+	//{
+	//	char a1[12] = "\0";
+	//	char a2[12] = "\0";
+	//	char b[40] = "Hello_WorldWorldWorldWorldWorldWorld\0";
+	//	if ((ft_strlcat(a1, b, 12) != strlcat(a2, b, 12) || (ft_strncmp(a1, a2, ft_strlen(a1)))) && !(flag = 0))
+	//		printf("  Test 4 FAILED\n");
+	//	//printf("ft = %s, std = %s\n", a1, a2);
+	//}
+	char dest[30]; memset(dest, 0, 30);
+	char * src = (char *)"AAAAAAAAA";
+	dest[0] = 'B';
+ 	printf("%lu\n", ft_strlcat(dest, src, 0)); printf("%c\n", dest[0]);
+	dest[0] = 'B';
+ 	printf("%lu\n", strlcat(dest, src, 0)); printf("%c\n", dest[0]);
+	///* 2 */ check(ft_strlcat(dest, src, 1) == 10 && !strcmp(dest, "B")); showLeaks();
 	return flag;
 }
 
 int	check_strlcpy()
 {
 	int flag = 1;
-	{
-		char a1[20] = "Hello_\0";
-		char a2[20] = "Hello_\0";
-		char b[10] = "World\0";
-		int d1, d2;
-		d1 = ft_strlcpy(a1, b, 20);
-		d2 = strlcpy(a2, b, 20);
-		//printf("ft = %d, std = %d, a1 = %s, a2 = %s\n", d1, d2, a1, a2);
-		if ((d1 != d2 || (ft_strncmp(a1, a2, ft_strlen(a1)))) && !(flag = 0))
-			printf("  Test 1 FAILED\n");
-	}
-	{
-		char a1[20] = "Hello_\0";
-		char a2[20] = "Hello_\0";
-		char b[10] = "World\0";
-		if ((ft_strlcpy(a1, b, 6) != strlcpy(a2, b, 6) || (ft_strncmp(a1, a2, ft_strlen(a1)))) && !(flag = 0))
-			printf("  Test 2 FAILED\n");
-	}
-	{
-		char a1[20] = "Hello_\0";
-		char a2[20] = "Hello_\0";
-		char b[40] = "WorldWorldWorldWorldWorldWorld\0";
-		if ((ft_strlcpy(a1, b, 10) != strlcpy(a2, b, 10) || (ft_strncmp(a1, a2, ft_strlen(a1)))) && !(flag = 0))
-			printf("  Test 3 FAILED\n");
-		//printf("ft = %s, std = %s\n", a1, a2);
-	}
-	{
-		char a1[12] = "\0";
-		char a2[12] = "\0";
-		char b[40] = "Hello_WorldWorldWorldWorldWorldWorld\0";
-		if ((ft_strlcpy(a1, b, 12) != strlcpy(a2, b, 12) || (ft_strncmp(a1, a2, ft_strlen(a1)))) && !(flag = 0))
-			printf("  Test 4 FAILED\n");
-		//printf("ft = %s, std = %s\n", a1, a2);
-	}
+//	{
+//		char a1[20] = "Hello_\0";
+//		char a2[20] = "Hello_\0";
+//		char b[10] = "World\0";
+//		int d1, d2;
+//		d1 = ft_strlcpy(a1, b, 20);
+//		d2 = strlcpy(a2, b, 20);
+//		//printf("ft = %d, std = %d, a1 = %s, a2 = %s\n", d1, d2, a1, a2);
+//		if ((d1 != d2 || (ft_strncmp(a1, a2, ft_strlen(a1)))) && !(flag = 0))
+//			printf("  Test 1 FAILED\n");
+//	}
+//	{
+//		char a1[20] = "Hello_\0";
+//		char a2[20] = "Hello_\0";
+//		char b[10] = "World\0";
+//		if ((ft_strlcpy(a1, b, 6) != strlcpy(a2, b, 6) || (ft_strncmp(a1, a2, ft_strlen(a1)))) && !(flag = 0))
+//			printf("  Test 2 FAILED\n");
+//	}
+//	{
+//		char a1[20] = "Hello_\0";
+//		char a2[20] = "Hello_\0";
+//		char b[40] = "WorldWorldWorldWorldWorldWorld\0";
+//		if ((ft_strlcpy(a1, b, 10) != strlcpy(a2, b, 10) || (ft_strncmp(a1, a2, ft_strlen(a1)))) && !(flag = 0))
+//			printf("  Test 3 FAILED\n");
+//		//printf("ft = %s, std = %s\n", a1, a2);
+//	}
+//	{
+//		char a1[12] = "\0";
+//		char a2[12] = "\0";
+//		char b[40] = "Hello_WorldWorldWorldWorldWorldWorld\0";
+//		if ((ft_strlcpy(a1, b, 12) != strlcpy(a2, b, 12) || (ft_strncmp(a1, a2, ft_strlen(a1)))) && !(flag = 0))
+//			printf("  Test 4 FAILED\n");
+//		//printf("ft = %s, std = %s\n", a1, a2);
+//	}
+	char src[7] = "coucou";
+	char dest[10]; memset(dest, 'A', 10);
+	printf("%lu\n", ft_strlcpy(dest, src, 0)); printf("%c\n", dest[0]);
+	/* 2 */ printf("%lu\n", ft_strlcpy(dest, src, 1)); 
 	return flag;
 }
 
@@ -840,6 +863,12 @@ int	check_strnstr()
 		if (d1 != d2 && !(flag = 0))
 			printf("  Test 4 FAILED\n");
 	}
+	char * big = (char *)"123456789";
+	char * little = (char *)"9";
+	size_t max = 8;
+	char *s1 = strnstr(big, little, max);
+	char *s2 = ft_strnstr(big, little, max);
+	printf("c _%s_ my _%s_\n", s1, s2);
 	return flag;
 }
 
@@ -917,7 +946,10 @@ int	check_atoi()
 		if (atoi(s1) != ft_atoi(s1) && !(flag = 0))
 			printf("  Test 14 FAILED\n");
 	}
-
+	char n[40] = "99999999999999999999999999";
+	int i1 = atoi(n);
+	int i2 = ft_atoi(n);
+	printf("%d %d\n", i1, i2);
 	return flag;
 }
 

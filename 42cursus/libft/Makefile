@@ -1,52 +1,61 @@
-SRC = isalpha.c isdigit.c isalnum.c isascii.c isprint.c strlen.c \
-	  memset.c bzero.c memcpy.c memmove.c strlcpy.c strlcat.c \
-	  toupper.c tolower.c strchr.c strrchr.c strncmp.c memchr.c \
-	  memcmp.c strnstr.c atoi.c calloc.c strdup.c \
-	  substr.c strjoin.c strtrim.c split.c itoa.c strmapi.c striteri.c \
-	  putstr_fd.c putchar_fd.c putendl_fd.c putnbr_fd.c \
-
-BSRC = lstnew_bonus.c lstadd_front_bonus.c lstsize_bonus.c lstlast_bonus.c \
-	  lstadd_back_bonus.c lstdelone_bonus.c lstclear_bonus.c lstiter_bonus.c \
-	  lstmap_bonus.c
-
-OBJ = ${SRC:.c=.o}
-BOBJ = ${BSRC:.c=.o}
-
-OBJ_DIR = obj
-SRC_DIR = src
-INC_DIR = include
-
-OBJS = $(addprefix $(OBJ_DIR)/,$(OBJ))
-SRCS = $(addprefix $(SRC_DIR)/,$(SRC))
-BOBJS = $(addprefix $(OBJ_DIR)/,$(BOBJ))
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: vladislove <marvin@42.fr>                  +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/10/19 19:51:44 by vladislov         #+#    #+#              #
+#    Updated: 2021/10/19 23:53:46 by vladislov        ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 NAME = libft.a
+
+SRC =	ft_isalpha.c	ft_isdigit.c	ft_isalnum.c \
+		ft_isascii.c	ft_isprint.c	ft_strlen.c \
+		ft_memset.c		ft_bzero.c		ft_memcpy.c \
+		ft_memmove.c	ft_strlcpy.c	ft_strlcat.c \
+	  	ft_toupper.c	ft_tolower.c	ft_strchr.c \
+		ft_strrchr.c	ft_strncmp.c	ft_memchr.c \
+	  	ft_memcmp.c		ft_strnstr.c	ft_atoi.c \
+		ft_calloc.c		ft_strdup.c		ft_substr.c \
+		ft_strjoin.c	ft_strtrim.c	ft_split.c \
+		ft_itoa.c		ft_strmapi.c	ft_striteri.c \
+	  	ft_putstr_fd.c  ft_putendl_fd.c ft_putnbr_fd.c \
+		ft_putchar_fd.c
+
+BSRC =	ft_lstnew_bonus.c	ft_lstadd_front_bonus.c	ft_lstsize_bonus.c \
+		ft_lstlast_bonus.c	ft_lstadd_back_bonus.c	ft_lstdelone_bonus.c \
+	   	ft_lstclear_bonus.c	ft_lstiter_bonus.c 		ft_lstmap_bonus.c
+
+OBJ = ${SRC:.c=.o}
+OBJ_B = ${BSRC:.c=.o}
+
 LIBC = ar rc
 LIBR = ranlib
 
 CC = gcc
 RM = rm -f
-MK = mkdir -p obj
 CFLAGS = -Wall -Wextra -Werror
 
-all:	$(NAME)
+all: $(NAME)
 
-$(NAME): $(OBJS) 
-	$(LIBC) $(NAME) $(OBJS)
-	$(LIBR) $(NAME)
+$(NAME): $(OBJ) 
+	ar rcs $(NAME) $?
 
-bonus: $(BOBJS)
-	$(LIBC) $(NAME) $^ $(OBJS)
-	$(LIBR) $(NAME)
+%.o: %.c libft.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/libft.h
-	@$(MK) $(OBJ_DIR)
-	$(CC) $(CFLAGS) -I include -c $< -o $@
+bonus:
+	@make OBJ="$(OBJ_B)" all
 
 clean:
-	$(RM) -r $(OBJ_DIR)
+	@$(RM) $(OBJ) $(OBJ_B)
 
 fclean:	clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re bonus
