@@ -1,44 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_putuint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmeredyt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/28 00:03:44 by pmeredyt          #+#    #+#             */
-/*   Updated: 2021/12/31 12:47:21 by pmeredyt         ###   ########.fr       */
+/*   Created: 2021/12/27 23:44:29 by pmeredyt          #+#    #+#             */
+/*   Updated: 2021/12/31 12:49:10 by pmeredyt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_strlen(const char *str)
+int	ft_putuint(const unsigned int n)
 {
-	int	count;
+	long long		ll;
+	char			length[20];
+	unsigned int	i;
+	int				result;
 
-	count = 0;
-	while (str[count])
-		++count;
-	return (count);
-}
-
-int	ft_puthex(unsigned long long nbr, const char *base)
-{
-	char				length[32];
-	int					i;
-	unsigned long long	ll;
-	int					result;
-
+	ll = n;
 	i = 0;
 	result = 0;
-	ll = nbr;
+	if (ll == 0)
+		result += ft_putchar('0');
 	while (ll)
 	{
-		length[i++] = base[ll % 16];
-		ll /= 16;
+		length[i++] = ll % 10 + '0';
+		ll /= 10;
 	}
-	if (nbr == 0)
-		result += ft_putchar(*base);
 	while (i)
 		result += ft_putchar(length[--i]);
 	return (result);

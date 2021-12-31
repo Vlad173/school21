@@ -6,7 +6,7 @@
 /*   By: pmeredyt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 23:44:29 by pmeredyt          #+#    #+#             */
-/*   Updated: 2021/12/27 23:54:48 by pmeredyt         ###   ########.fr       */
+/*   Updated: 2021/12/31 12:49:04 by pmeredyt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_putint(const int n)
 	long long	ll;
 	char		length[10];
 	int			i;
-	int result;
+	int			result;
 
 	ll = n;
 	i = 0;

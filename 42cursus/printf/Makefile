@@ -6,14 +6,14 @@
 #    By: vladislove <marvin@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/19 19:51:44 by vladislov         #+#    #+#              #
-#    Updated: 2021/12/28 00:15:35 by pmeredyt         ###   ########.fr        #
+#    Updated: 2021/12/31 11:57:30 by pmeredyt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 SRC =	ft_printf.c ft_putchar.c ft_putint.c ft_putstr.c \
-		ft_puthex.c
+		ft_puthex.c ft_putuint.c
 
 BSRC =	
 

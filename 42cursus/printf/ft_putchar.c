@@ -6,13 +6,13 @@
 /*   By: pmeredyt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 23:18:12 by pmeredyt          #+#    #+#             */
-/*   Updated: 2021/12/27 23:34:12 by pmeredyt         ###   ########.fr       */
+/*   Updated: 2021/12/31 12:47:21 by pmeredyt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putchar(const char c)
+int	ft_putchar(const char c)
 {
 	write(1, &c, 1);
 	return (1);

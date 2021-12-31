@@ -6,7 +6,7 @@
 /*   By: pmeredyt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 23:53:19 by pmeredyt          #+#    #+#             */
-/*   Updated: 2021/12/27 23:57:22 by pmeredyt         ###   ########.fr       */
+/*   Updated: 2021/12/31 12:49:51 by pmeredyt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,11 @@
 
 int	ft_putstr(const char *s)
 {
-	int result;
+	int	result;
 
 	result = 0;
 	if (!s)
-	{
-		ft_putchar('(');
-		ft_putchar('n');
-		ft_putchar('u');
-		ft_putchar('l');
-		ft_putchar('l');
-		ft_putchar(')');
-		return (6);
-	};
+		return (write(1, "(null)", 6));
 	while (*s)
 	{
 		result += ft_putchar(*s);
