@@ -10,5 +10,5 @@ Nickname: *pmeredyt*
 * [so_long](https://github.com/Vlad173/school21/blob/master/subjects/so_long.pdf)
 
 ### Projects i'm working on
-* [push_swap](https://github.com/Vlad173/school21/blob/master/subjects/push_swap)
+* [push_swap](https://github.com/Vlad173/school21/blob/master/subjects/push_swap.pdf)
 * minishell...
