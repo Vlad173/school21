@@ -1,6 +1,6 @@
 # School 21
 
-Nickname: *pmeredyt*
+*Nickname: pmeredyt*
 
 ### Completed projects
 * [libft](https://github.com/Vlad173/school21/blob/master/subjects/libft.pdf)
