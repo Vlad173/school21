@@ -1,15 +1,18 @@
 # School 21
 
-*Nickname: pmeredyt*
+*Nickname: pmeredyt* 
 
 ### Completed projects
-* [libft](https://github.com/Vlad173/school21/blob/master/subjects/libft.pdf)
-* [get_next_line](https://github.com/Vlad173/school21/blob/master/subjects/get_next_line.pdf)
-* [ft_printf](https://github.com/Vlad173/school21/blob/master/subjects/ft_printf.pdf)
-* [born2beroot](https://github.com/Vlad173/school21/blob/master/subjects/born2beroot.pdf)
-* [minitalk](https://github.com/Vlad173/school21/blob/master/subjects/minitalk.pdf)
-* [so_long](https://github.com/Vlad173/school21/blob/master/subjects/so_long.pdf)
+| Project | Repo | Subject |
+| - | - | - |
+| libft | [click](libft) | [click](subjects/libft.pdf) |
+| get_next_line | [click](get_next_line) | [click](subjects/get_next_line.pdf) |
+| ft_printf | [click](printf) | [click](subjects/ft_printf.pdf) |
+| born2beroot | - | [click](subjects/born2beroot.pdf) |
+| minitalk | [click](https://github.com/Vlad173/minitalk) | [click](subjects/minitalk.pdf) |
+| so_long | [click](https://github.com/Vlad173/so_long) | [click](subjects/so_long.pdf) |
+| push_swap | [click](https://github.com/Vlad173/push_swap) | [click](subjects/push_swap.pdf) |
 
 ### Projects i'm working on
-* [push_swap](https://github.com/Vlad173/school21/blob/master/subjects/push_swap.pdf)
+* philosophers...
 * minishell...
